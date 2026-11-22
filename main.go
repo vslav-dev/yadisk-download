@@ -63,7 +63,7 @@ var (
 
 	// Download slots: a new one is added every spawnEvery while no data has arrived for activeWindow
 	// (and no checksum is being computed), up to maxSlots. While data flows, no slot is added.
-	maxSlots     = 10
+	maxSlots     = 25
 	spawnEvery   = 5 * time.Second
 	activeWindow = 15 * time.Second
 )
@@ -271,7 +271,7 @@ func (c *client) authorize(ctx context.Context) error {
 	if rejected == nil {
 		return &fatalError{errors.New("no refresh token: build with build.sh")}
 	}
-	return &fatalError{fmt.Errorf("%w; re-authorize in sozvon-konspekt and rebuild", rejected)}
+	return &fatalError{fmt.Errorf("%w; re-authorize and rebuild", rejected)}
 }
 
 func (c *client) exchange(ctx context.Context, token string) (access, newRefresh string, err error) {

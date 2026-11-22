@@ -680,7 +680,7 @@ func TestVerify(t *testing.T) {
 func TestValidName(t *testing.T) {
 	tests := map[string]bool{
 		"2025-11-28 15-59-16.mkv":     true,
-		"2024-08-15 !!! БИЛД !!!.mkv": true,
+		"2024-08-15 !!! ТЕСТ !!!.mkv": true,
 		"":                            false,
 		".":                           false,
 		"..":                          false,

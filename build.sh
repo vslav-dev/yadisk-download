@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # Builds ONE binary (linux/amd64 unless GOOS/GOARCH are set, e.g. GOOS=darwin GOARCH=arm64) with the Yandex.Disk OAuth credentials baked in.
-# The credentials are read from the sozvon-konspekt env file at build time; they end up only inside the binary.
-# Usage: bash build.sh [path/to/env-file]
+# The credentials are read from an env file at build time; they end up only inside the binary.
+# Usage: bash build.sh [path/to/env-file]   (default: .env next to this script)
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
-ENV_FILE="${1:-$HERE/../sozvon-konspekt/.env.95-182-83-180}"
+ENV_FILE="${1:-$HERE/.env}"
 
 get() {
   grep -m1 "^$1=" "$ENV_FILE" | sed -e 's/^[^=]*=//' -e 's/\r$//' -e 's/^"\(.*\)"$/\1/'

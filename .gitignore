@@ -9,7 +9,10 @@
 *.part
 *.test
 
-# Local notes about the personal Disk (regenerate with -tree)
+# Local notes about the Disk layout (regenerate with -tree)
 /yadisk-structure.txt
+
+# OAuth credentials used by build.sh
+/.env*
 
 .DS_Store
